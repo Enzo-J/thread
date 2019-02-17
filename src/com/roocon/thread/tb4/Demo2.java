@@ -11,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
  * CountDownLatch的使用方法
  * CountDownLatch是通过一个计数器来实现的，计数器的初始值为线程的数量。每当一个线程完成了自己的任务后，计数器的值就会减1。
  * 当计数器值到达0时，它表示所有的线程已经完成了任务，然后在闭锁上等待的线程就可以恢复执行任务。
- *
+ * http://www.importnew.com/15731.html
  */
 public class Demo2 {
 
@@ -76,7 +76,7 @@ public class Demo2 {
 		String line = null;
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader("D:\\java-code\\practice\\thread\\src\\com\\roocon\\thread\\tb4\\nums.txt"));
+			br = new BufferedReader(new FileReader("F:\\java-project\\thread\\src\\com\\roocon\\thread\\tb4\\nums.txt"));
 			while ((line = br.readLine()) != null) {
 				contents.add(line);
 			}
