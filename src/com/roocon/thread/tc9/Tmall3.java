@@ -3,6 +3,9 @@ package com.roocon.thread.tc9;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
+/**
+ * https://www.cnblogs.com/yulinfeng/p/6986975.html
+ */
 public class Tmall3 implements Shop {
 
 	public final int MAX_COUNT = 10;
