@@ -1,5 +1,7 @@
 package com.roocon.thread.tb9;
 
+import java.util.Random;
+
 public class Demo {
 	
 	public static void main(String[] args) {
@@ -8,7 +10,11 @@ public class Demo {
 		
 		// 下单，交钱
 		Future f = pf.createProduct("蛋糕");
-		
+//		try {
+//			Thread.sleep(1000);
+//		}catch (Exception e){
+//			e.printStackTrace();
+//		}
 		System.out.println("我去上班了，下了班我来取蛋糕...");
 		
 		// 拿着订单获取产品

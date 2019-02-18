@@ -1,5 +1,10 @@
 package com.roocon.thread.td3;
 
+/**
+ * << 带符号左移
+ * >>> 无符号右移
+ *
+ */
 public class Demo {
 	
 	private static final int MAXIMUM_CAPACITY = 1 << 30;

@@ -5,6 +5,11 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Future;
 import java.util.concurrent.RecursiveTask;
 
+/**
+ * fork join ¿ò¼Ü
+ * ¿´ÊÓÆµ
+ */
+
 public class CalcTask extends RecursiveTask<Integer> {
 	
 	private int begin;

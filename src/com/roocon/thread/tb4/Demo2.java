@@ -76,7 +76,7 @@ public class Demo2 {
 		String line = null;
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader("F:\\java-project\\thread\\src\\com\\roocon\\thread\\tb4\\nums.txt"));
+			br = new BufferedReader(new FileReader("D:\\java-code\\practice\\thread\\src\\com\\roocon\\thread\\tb4\\nums.txt"));
 			while ((line = br.readLine()) != null) {
 				contents.add(line);
 			}
