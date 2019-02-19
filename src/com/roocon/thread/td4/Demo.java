@@ -6,6 +6,11 @@ import java.util.concurrent.ThreadPoolExecutor.DiscardOldestPolicy;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 线程池——
+ * https://blog.csdn.net/holmofy/article/details/77411854
+ * https://blog.csdn.net/holmofy/article/details/81271839
+ */
 public class Demo {
 	
 	public static void main(String[] args) {

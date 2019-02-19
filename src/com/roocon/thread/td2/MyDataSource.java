@@ -8,6 +8,9 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 手动制作连接池
+ */
 public class MyDataSource {
 
 	private LinkedList<Connection> pool = new LinkedList<>();

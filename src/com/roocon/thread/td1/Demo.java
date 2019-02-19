@@ -2,6 +2,11 @@ package com.roocon.thread.td1;
 
 import java.util.concurrent.locks.StampedLock;
 
+/**
+ * 看视频
+ * StampedLock：1.8新增的锁，读写锁的改进版
+ * http://blog.sina.com.cn/s/blog_6f5e71b30102xfsb.html
+ */
 public class Demo {
 	
 	private int balance;
