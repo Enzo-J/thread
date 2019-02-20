@@ -18,7 +18,7 @@ public class Demo6 {
 			});
 		}
 		
-		threadPool.shutdown();
+		threadPool.shutdown(); //停掉线程池
 	}
 
 }

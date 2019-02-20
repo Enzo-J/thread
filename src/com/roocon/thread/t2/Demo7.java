@@ -3,6 +3,9 @@ package com.roocon.thread.t2;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * jdk8 lambda表达式  TODO:需要回去复习下
+ */
 public class Demo7 {
 	
 	public static void main(String[] args) {

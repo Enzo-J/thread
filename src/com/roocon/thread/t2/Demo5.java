@@ -3,6 +3,9 @@ package com.roocon.thread.t2;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * 定时器 jdk自带的，quartz这个用得比较多
+ */
 public class Demo5 {
 
 	public static void main(String[] args) {
