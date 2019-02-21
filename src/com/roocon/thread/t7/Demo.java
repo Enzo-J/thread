@@ -1,8 +1,7 @@
 package com.roocon.thread.t7;
 
 /**
- * 保证可见性的前提
- * 
+ * 保证可见性的前提——
  * 多个线程拿到的是同一把锁，否则是保证不了的。
  * 
  * @author worker

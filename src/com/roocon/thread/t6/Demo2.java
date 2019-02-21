@@ -4,6 +4,7 @@ import java.util.Random;
 
 /**
  * 多个线程执行完毕之后，打印一句话，结束
+ * 不具有实际意义的，这里只是用来证明自旋
  * @author worker
  *
  */

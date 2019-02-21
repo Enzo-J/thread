@@ -6,7 +6,7 @@ package com.roocon.thread.t2;
 public class InterruptionInJava2 implements Runnable{
     private volatile static boolean on = false;
     public static void main(String[] args) throws InterruptedException {
-        Thread testThread = new Thread(new InterruptionInJava(),"InterruptionInJava");
+        Thread testThread = new Thread(new InterruptionInJava2(),"InterruptionInJava");
         //start thread
         testThread.start();
         Thread.sleep(1000);

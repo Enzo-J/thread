@@ -21,6 +21,11 @@ public class Singleton2 {
 		// 自旋   while(true)
 		if(instance == null) {
 			synchronized (Singleton2.class) {
+				/**
+				 * 这里为什么加Singleton2.class的锁——
+                 * 1：Singleton2.class全局只有一个
+                 * 2：一旦有个线程拿到了这个锁，其他线程就无法获取并进行操作，符合要求
+				 */
 				if(instance == null) {
 					//这里为什么还要再次进行做判空操作
                     /**
