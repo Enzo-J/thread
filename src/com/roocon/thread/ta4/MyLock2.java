@@ -28,9 +28,10 @@ public class MyLock2 implements Lock {
 			// 如何判断是第一个线程进来还是其他线程进来？
 			int state = getState();
 			Thread t = Thread.currentThread();
-
+			//线程第一次进入，所以state为0
 			if (state == 0) {
 				if (compareAndSetState(0, arg)) {
+					//设置当前线程
 					setExclusiveOwnerThread(t);
 					return true;
 				}
@@ -55,6 +56,7 @@ public class MyLock2 implements Lock {
 			boolean flag = false;
 
 			if (state == 0) {
+			    //将当前线程置为空
 				setExclusiveOwnerThread(null);
 				flag = true;
 			}

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 这个看得不是很懂
+ * 自己实现的公平锁   不可重入
+ * 提供一个队列，里面存放一个个对象，且每个对象都有自身的wait、notify方法。在每次进入队列的时候，调用wait方法，出队列的时候，调用该对象的notify方法，精准
+ * 唤醒该对象，实现该效果。
  */
 
 
@@ -15,18 +17,30 @@ public class FairLock {
 
 	public void lock() throws InterruptedException {
 		QueueObject queueObject = new QueueObject();
-		synchronized (this) {
-			waitingThreads.add(queueObject);
-		}
-
-		try {
-			queueObject.doWait();
-		} catch (InterruptedException e) {
-			synchronized (this) {
-				waitingThreads.remove(queueObject);
-			}
-			throw e;
-		}
+		boolean isLockedForThisThread =true;
+        synchronized (this) {
+            waitingThreads.add(queueObject);
+        }
+        //可重入
+		while (isLockedForThisThread){
+		    synchronized (this){
+		        isLockedForThisThread=isLocked|| waitingThreads.get(0) != queueObject;
+		        if(!isLockedForThisThread){
+		            isLocked=true;
+		            waitingThreads.remove(queueObject);
+		            lockingThread=Thread.currentThread();
+		            return;
+                }
+            }
+            try {
+                queueObject.doWait();
+            } catch (InterruptedException e) {
+                synchronized (this) {
+                    waitingThreads.remove(queueObject);
+                }
+                throw e;
+            }
+        }
 	}
 
 	public synchronized void unlock() {
