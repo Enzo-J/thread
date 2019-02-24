@@ -42,6 +42,7 @@ public class Demo {
 		}
 		System.out.println("c");
 		signal = 0;
+		//这里只能全唤醒，而不能针对性的堆某个线程进行唤醒。
 		notifyAll();
 	}
 	

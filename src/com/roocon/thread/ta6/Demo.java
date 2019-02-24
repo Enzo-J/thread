@@ -4,6 +4,7 @@ import com.roocon.thread.t5.Singleton2;
 
 /**
  * 这种写法和wait notify的区别是什么
+ * ——这样写的话，在sleep的时候，会出现不及时，不同步的情况，而wait和notify不会出现这种情况。
  */
 
 public class Demo {
@@ -47,7 +48,7 @@ public class Demo {
 				 */
 				while(d.get() != 1) {
 					try {
-						Thread.sleep(1500);
+						Thread.sleep(1500);  //休眠不占用CPU资源
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}

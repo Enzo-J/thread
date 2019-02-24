@@ -10,6 +10,10 @@ private volatile int signal;
 		signal = 1;
 		notifyAll(); // notify方法会随机叫醒一个处于wait状态的线程
 		 // notifyAll叫醒所有的处于wait线程，争夺到时间片的线程只有一个
+        /**
+         * 不管是释放锁（wait）还是拿到锁（notify），都是等到其上述的synchronized锁释放后才进行操作——并不是在调用了
+         * wait或者notify之后就释放锁或者拿到锁，而是等到方法执行完成。
+         */
 		System.out.println("叫醒线程叫醒之后休眠开始...");
 		try {
 			Thread.sleep(3000);
@@ -18,7 +22,7 @@ private volatile int signal;
 			e.printStackTrace();
 		}
 	}
-	
+	//wait会释放锁
 	public synchronized int get () {
 		System.out.println(Thread.currentThread().getName() + " 方法执行了...");
 		if(signal != 1) {

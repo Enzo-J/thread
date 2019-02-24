@@ -4,6 +4,12 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 有界队列——满的时候，无法往里面添加；空的时候，无法从里面获取
+ * 为了提高性能，在移除的时候不对后面的元素向前移动，所以用另一种模式：
+ * addIndex  removeIndex    queueSize
+ * @param <E>
+ */
 public class MyQueue<E> {
 
 	private Object[] obj;
