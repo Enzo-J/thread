@@ -1,6 +1,5 @@
 package com.roocon.thread.ta6;
 
-import com.roocon.thread.t5.Singleton2;
 
 /**
  * 这种写法和wait notify的区别是什么

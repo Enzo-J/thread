@@ -1,5 +1,8 @@
 package com.roocon.thread.tb9;
 
+/**
+ * 订单和产品的关联
+ */
 public class Future {
 	
 	private Product product;

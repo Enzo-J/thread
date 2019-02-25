@@ -30,7 +30,7 @@ public class ProductFactory {
 				f.setProduct(p);
 			}
 		}).start();
-		return f;
+		return f;//这里返回的是订单
 	}
 
 }
