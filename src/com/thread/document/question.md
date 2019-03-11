@@ -11,10 +11,11 @@ rabbitmq序列文档：https://www.cnblogs.com/daiwei1981/p/9394587.html
 2）rabbitmq弄丢了数据——持久化  
 设置持久化有两个步骤，第一个是创建queue的时候将其设置为持久化的，这样就可以保证rabbitmq持久化queue的元数据，但是不会持久化queue里的数据；第二个是发送消息的时候将消息的deliveryMode设置为2，就是将消息设置为持久化的，
 此时rabbitmq就会将消息持久化到磁盘上去。必须要同时设置这两个持久化才行，rabbitmq哪怕是挂了，再次重启，也会从磁盘上重启恢复queue，恢复这个queue里的数据。  
-而且持久化可以跟生产者那边的confirm机制配合起来，只有消息被持久化到磁盘之后，才会通知生产者ack了，所以哪怕是在持久化到磁盘之前，rabbitmq挂了，数据丢了，生产者收不到ack，你也是可以自己重发的。
+而且持久化可以跟生产者那边的confirm机制配合起来，只有消息被持久化到磁盘之后，才会通知生产者ack了，所以哪怕是在持久化到磁盘之前，rabbitmq挂了，数据丢了，生产者收不到ack，你也是可以自己重发的。  
+exchangeDeclare()和queueDeclare()这两个方法中有相应的参数进行持久化（true——持久化，false——非持久化）  
 3）消费端弄丢了数据——这个时候得用rabbitmq提供的ack机制，简单来说，就是你关闭rabbitmq自动ack，可以通过一个api来调用就行，然后每次你自己代码里确保处理完的时候，再程序里ack一把。这样的话，如果你还没处理完，不就没有ack？
    那rabbitmq就认为你还没处理完，这个时候rabbitmq会把这个消费分配给别的consumer去处理，消息是不会丢的。  
-
+   basicConsume()里面的参数置false,使用basicAck()及进行手动ack    
 2：怎么保证高可用  
     镜像集群模式——rabbitmq有很好的管理控制台，就是在后台新增一个策略，这个策略是镜像集群模式的策略，指定的时候可以要求数据同步到所有节点的，也可以要求就同步到指定数量的节点，然后你再次创建queue的时候，
     应用这个策略，就会自动将数据同步到其他的节点上去了。  
@@ -36,6 +37,14 @@ rabbitmq序列文档：https://www.cnblogs.com/daiwei1981/p/9394587.html
     
 7：自己如何实现消息队列
   生产者  消费者   阻塞队列  
+
+8：rabbitmq自动及手动ACK  
+https://blog.csdn.net/m0_38140657/article/details/80915561  
+https://blog.csdn.net/youbl/article/details/80425959  
+
+具体的代码实现：
+https://blog.csdn.net/vbirdbest/article/details/78670550  
+basicQos——https://blog.csdn.net/zhongjay/article/details/84753291
 
 
 ###2：
